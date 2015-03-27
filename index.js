@@ -4,6 +4,7 @@
 
     var Node_Mollie = require("mollie-api-node"),
         Classes = require('js-ext/js-ext.js').Classes, // full version
+        Node_Mollie_Method = Node_Mollie.API.Object.Method,
         Mollie;
 
     Mollie = Classes.createClass(
@@ -13,6 +14,16 @@
             instance.mollieClient.setApiKey(api);
         },
         {
+            methods = {
+                IDEAL: Node_Mollie_Method.IDEAL,
+                PAYSAFECARD: Node_Mollie_Method.PAYSAFECARD,
+                CREDITCARD: Node_Mollie_Method.CREDITCARD,
+                MISTERCASH: Node_Mollie_Method.MISTERCASH,
+                BANKTRANSFER: Node_Mollie_Method.BANKTRANSFER,
+                PAYPAL: Node_Mollie_Method.PAYPAL,
+                BITCOIN: Node_Mollie_Method.BITCOIN,
+                SOFORT: Node_Mollie_Method.SOFORT
+            },
             sendPayment: function(config) {
                 var instance = this;
                 return new global.Promise(function(resolve, reject) {
@@ -28,28 +39,28 @@
                 });
             },
             sendPaymentIDEAL: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.IDEAL, config, orderid);
+                return this._sendPaymentMethod(this.methods.IDEAL, config, orderid);
             },
             sendPaymentPAYSAFECARD: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.PAYSAFECARD, config, orderid);
+                return this._sendPaymentMethod(this.methods.PAYSAFECARD, config, orderid);
             },
             sendPaymentCREDITCARD: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.CREDITCARD, config, orderid);
+                return this._sendPaymentMethod(this.methods.CREDITCARD, config, orderid);
             },
             sendPaymentMISTERCASH: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.MISTERCASH, config, orderid);
+                return this._sendPaymentMethod(this.methods.MISTERCASH, config, orderid);
             },
             sendPaymentBANKTRANSFER: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.BANKTRANSFER, config, orderid);
+                return this._sendPaymentMethod(this.methods.BANKTRANSFER, config, orderid);
             },
             sendPaymentPAYPAL: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.PAYPAL, config, orderid);
+                return this._sendPaymentMethod(this.methods.PAYPAL, config, orderid);
             },
             sendPaymentBITCOIN: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.BITCOIN, config, orderid);
+                return this._sendPaymentMethod(this.methods.BITCOIN, config, orderid);
             },
             sendPaymentSOFORT: function(config, orderid) {
-                return this._sendPaymentMethod(Node_Mollie.API.Object.Method.SOFORT, config, orderid);
+                return this._sendPaymentMethod(this.methods.SOFORT, config, orderid);
             },
             verifyPayment: function(paymentId) {
                 var instance = this;
