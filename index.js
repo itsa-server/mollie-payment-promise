@@ -14,7 +14,7 @@
             instance.mollieClient.setApiKey(api);
         },
         {
-            methods = {
+            methods: {
                 IDEAL: Node_Mollie_Method.IDEAL,
                 PAYSAFECARD: Node_Mollie_Method.PAYSAFECARD,
                 CREDITCARD: Node_Mollie_Method.CREDITCARD,
