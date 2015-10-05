@@ -1,5 +1,5 @@
 {
-    "name": "mollie-payment-promise",
+    "name": "itsa-mollie-payment-promise",
     "version": "0.0.1",
     "description": "Promise-wrapper arround mollie-api-node for internet payments",
     "author": [
